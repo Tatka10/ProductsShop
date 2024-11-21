@@ -5,7 +5,7 @@
 <!--<a href="/product?id=123456>Микроволновка "Победа"</a>-->
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="UTF-8">
   <title>Каталог</title>
@@ -14,12 +14,22 @@
 
 
 <tr> Каталог товаров</tr>
-<br>
-<a href="/product?id=1"> Икра красная лососевая </a>
-<br>
-<a href="/product?id=2">Икра красная форелевая</a>
-<br>
-<a href="/product?id=3">Икра черная осетровая</a>
+<table border="1" style="width:300px">
+  <tr>
+    <th>Наименование </th><th>Цена, руб</th>
+  </tr>
+  <tr th:each="line : ${tab_prod}">
+    <td><span th:text="${line.name}"/>   </td>  <td><span th:text="${line.price}"/></td>
+  </tr>
+
+
+</table>
+<!--<br>-->
+<!--<a href="/product?id=1"> Икра красная лососевая </a>-->
+<!--<br>-->
+<!--<a href="/product?id=2">Икра красная форелевая</a>-->
+<!--<br>-->
+<!--<a href="/product?id=3">Икра черная осетровая</a>-->
 
 
 

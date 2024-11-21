@@ -1,9 +1,9 @@
 package com.example.ProductsShop;
 
-public class CaviarTrout extends Product {
+public class Butter extends Product {
     String id = "2";
 
-    public CaviarTrout(String name, int price, String id) {
+    public Butter(String name, int price, String id) {
         super(name, price);
         this.id = id;
     }
