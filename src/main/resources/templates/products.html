@@ -7,33 +7,33 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-  <meta charset="UTF-8">
-  <title>Каталог</title>
+    <meta charset="UTF-8">
+    <title>Каталог</title>
 </head>
 <body>
 
 
 <tr> Каталог товаров</tr>
 <table border="1" style="width:300px">
-  <tr>
-    <th>Наименование </th><th>Цена, руб</th>
-  </tr>
-  <tr th:each="line : ${tab_prod}">
-    <td><span th:text="${line.name}"/>   </td>  <td><span th:text="${line.price}"/></td>
-  </tr>
+<tr>
+    <th>Наименование</th>
+    <th>Цена, руб</th>
 
 
+<tr th:each="line : ${tab_prod}">
+    <td> <a href="/product?id"> </a><span th:text="${line.name}"/></td>
+    <td><span th:text="${line.price}"/></td>
+    <a href="/product?id"> </a>
+</tr>
 </table>
+
+
 <!--<br>-->
 <!--<a href="/product?id=1"> Икра красная лососевая </a>-->
 <!--<br>-->
 <!--<a href="/product?id=2">Икра красная форелевая</a>-->
 <!--<br>-->
 <!--<a href="/product?id=3">Икра черная осетровая</a>-->
-
-
-
-
 
 
 </body>

@@ -23,8 +23,8 @@ public class ProdController {
         return "products";
     }
 
-    @GetMapping("/caviar")
-    public String caviarSalm(String id) {
+    @GetMapping("/product?id")
+    public String description(String id) {
         System.out.println(id);
         return "products";
 
