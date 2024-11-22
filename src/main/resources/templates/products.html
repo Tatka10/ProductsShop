@@ -21,9 +21,9 @@
 
 
 <tr th:each="line : ${tab_prod}">
-    <td> <a href="/product?id"> </a><span th:text="${line.name}"/></td>
+    <td> <a th:href="@{/pr(name=${line.name})}"> <span th:text="${line.name}"/></a></td>
     <td><span th:text="${line.price}"/></td>
-    <a href="/product?id"> </a>
+<!--    <a href="/product?id"> </a>-->
 </tr>
 </table>
 
