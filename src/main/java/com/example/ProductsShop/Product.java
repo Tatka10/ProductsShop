@@ -3,9 +3,9 @@ package com.example.ProductsShop;
 public class Product {
     String name;
     int price;
-    String id;
+    int id;
 
-    public Product(String name, int price, String id) {
+    public Product(String name, int price, int id) {
         this.name = name;
         this.price = price;
         this.id=id;
@@ -28,7 +28,7 @@ public class Product {
         return price;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 }

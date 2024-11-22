@@ -23,8 +23,10 @@ public class ProdController {
         return "products";
     }
 
-    @GetMapping("/product?id")
-    public String description(String id) {
+    @GetMapping("/pr")
+    public String description(int id, Model model) {
+        Product product=prodService.getProductById(id);
+        if (product!=null){model.addAttribute("product",product);}
         System.out.println(id);
         return "products";
 
