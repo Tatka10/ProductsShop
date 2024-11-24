@@ -11,31 +11,49 @@ public class ProdController {
     ProdService prodService;
 
     @GetMapping("/")
-    public String index1() {
+    public String index1(Model model) {
+        System.out.println(prodService.list);
+        model.addAttribute("tab_prod", prodService.getList());
         return "products";
     }
 
     @GetMapping("/products")
     public String index(Model model) {
-        prodService.addProd();
         System.out.println(prodService.list);
-        model.addAttribute("tab_prod", prodService.list);
+        model.addAttribute("tab_prod", prodService.getList());
         return "products";
     }
 
-    @GetMapping("/pr")
-    public String description(int id, Model model) {
-        Product product=prodService.getProductById(id);
-        if (product!=null){model.addAttribute("product",product);}
-        System.out.println(id);
-        return "products";
+    @GetMapping("/prInfo")
+    public String getOneProduct(String id, Model model) {
+        try {
+            int y = Integer.parseInt(id);
 
+            Product product = prodService.getProductById(y);
+            if (product != null) {
+                model.addAttribute("product", product);
+            }
+            System.out.println(id);
+            return "prInfo";
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return "products";
+        }
     }
 
-    @GetMapping("/product")
-    public String caviarTrout(String id) {
-        return "products";
-//    @GetMapping("/product?id=2")
-//    public String
-    }
+    @GetMapping("/deletePr")
+    public String deleteProductById(String id, Model model) {
+        try {
+            int y = Integer.parseInt(id);
+
+            model.addAttribute("tab_prod",prodService.removeById(y));
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+
+        }
+
+
+        return "index";}
+
+
 }

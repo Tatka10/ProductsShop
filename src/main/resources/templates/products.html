@@ -15,16 +15,20 @@
 
 <tr> Каталог товаров</tr>
 <table border="1" style="width:300px">
-<tr>
-    <th>Наименование</th>
-    <th>Цена, руб</th>
+    <tr>
+        <th>Наименование</th>
+        <th>Цена, руб</th>
 
 
-<tr th:each="line : ${tab_prod}">
-    <td> <a th:href="@{/pr(name=${line.name})}"> <span th:text="${line.name}"/></a></td>
-    <td><span th:text="${line.price}"/></td>
-<!--    <a href="/product?id"> </a>-->
-</tr>
+    <tr th:each="line : ${tab_prod}">
+        <td><a th:href="@{/pr(name=${line.name})}"> <span th:text="${line.name}"/></a></td>
+        <td><span th:text="${line.price}"/></td>
+        <td>
+            <a th:href="@{'/prInfo?id='+ ${line.id}}"> Описание продукта </a>
+        <td>
+            <a th:href="@{'/deletePr?id=' + ${line.id}}">Удалить продукт </a>
+        </td>
+    </tr>
 </table>
 
 
