@@ -28,12 +28,23 @@ public class ProdService {
         }
         return null;// если не найден, вернуться на главную
     }
-    public Object removeById(int id){
+
+    public Object removeById(int id) {
         Product product = getProductById(id);
-        if(product!=null)
+        if (product != null)
             list.remove(product);
         return null;
     }
 
+    public Product getProductByNAme(String name) {
+
+        for (Product product : list) {
+            if (product.getName() == name) {
+                return product;
+            }
+
+        }
+        return null;
+    }
 }
 
