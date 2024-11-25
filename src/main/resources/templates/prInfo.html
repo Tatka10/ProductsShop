@@ -1,39 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Интернет-магазин</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-        header, footer { background-color: #0047ab; color: white; text-align: center; padding: 1em; }
-        main { padding: 2em; }
-        .product { border: 1px solid #ccc; padding: 1em; margin-bottom: 1em; }
-    </style>
+    <title>Описание товара</title>
 </head>
 <body>
-<header>
-    <h1> Описание</h1>
-</header>
-<main>
-    <div class="product">
-        <h2>Молоко "Буренка" </h2>
-        <p>ценный пищевой продукт, содержащий более 100 питательных веществ, включая белки, жир, молочный сахар, минеральные вещества, фосфолипиды, органические кислоты, витамины, ферменты. Молоко является возбудителем пищеварения, поддерживает кислотно-щелочное равновесие в пищеварительном тракте.</p>
-        <p>Цена: 100 руб </p>
-    </div>
-    <div class="product">
-        <h2>Масло сливочное </h2>
-        <p>Сливочное масло является натуральным продуктом, изготовляемым из молока путем сепарирования или взбивания сливок.Сливочное масло очень полезный натуральный продукт. В его составе такие витамины как А, Д, Е, К, которые помогают организму в укреплении костей, зрения, волос и ногтей.</p>
-        <p>Цена: 200 руб </p>
-    </div>
-    <div class="product">
-        <h2>Хлеб ржаной</h2>
-        <p>Ржаной хлеб более чем на 90% состоит из ржаной муки. В ржаном хлебе, особенно в цельнозерновом, много полезных для здоровья питательных веществ, которых не дают другие продукты. Ржаной хлеб является диетическим продуктом для сердца.</p>
-        <p>Цена: 80 руб </p>
-    </div>
-</main>
-<footer>
-    <p>Приятного аппетита!</p>
-</footer>
+
+        <p th:if="${product!=null}"><span th:text="${product.name}"></span> стоит </p>
+        <p th:if="${product!=null}"><span th:text="${product.price}"> </span> рублей</p>
+
+    <br>
+    <br>
+
+    <a href="/">Назад к списку товаров </a>
+
 </body>
 </html>

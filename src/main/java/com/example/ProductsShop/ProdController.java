@@ -48,7 +48,7 @@ public class ProdController {
             if (product != null) {
                 model.addAttribute("product", product);
             }
-            System.out.println(name);
+            System.out.println(product);
             return "prInfo";
         } catch (Exception e) {
             System.out.println(e.getMessage());

@@ -4,6 +4,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Component
 public class ProdService {
@@ -39,7 +40,7 @@ public class ProdService {
     public Product getProductByNAme(String name) {
 
         for (Product product : list) {
-            if (product.getName() == name) {
+            if (Objects.equals(product.getName(), name)) {
                 return product;
             }
 
