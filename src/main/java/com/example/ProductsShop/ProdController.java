@@ -25,7 +25,7 @@ public class ProdController {
     }
 
     @GetMapping("/prInfo")
-    public String getOneProduct(String id, Model model) {
+    public String getOneProductBYId(String id, Model model) {
         try {
             int y = Integer.parseInt(id);
 
@@ -41,19 +41,36 @@ public class ProdController {
         }
     }
 
+    @GetMapping("/prodInfo")
+    public String getOneProductByName(String name, Model model) {
+        try {
+            Product product = prodService.getProductByNAme(name);
+            if (product != null) {
+                model.addAttribute("product", product);
+            }
+            System.out.println(name);
+            return "prInfo";
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return "products";
+        }
+    }
+
     @GetMapping("/deletePr")
     public String deleteProductById(String id, Model model) {
         try {
             int y = Integer.parseInt(id);
+            prodService.removeById(y);
 
-            model.addAttribute("tab_prod",prodService.removeById(y));
+            model.addAttribute("tab_prod", prodService.getList());
         } catch (Exception e) {
             System.out.println(e.getMessage());
 
         }
 
 
-        return "index";}
+        return "products";
+    }
 
 
 }

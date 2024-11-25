@@ -21,7 +21,7 @@
 
 
     <tr th:each="line : ${tab_prod}">
-        <td><a th:href="@{/pr(name=${line.name})}"> <span th:text="${line.name}"/></a></td>
+        <td><a th:href="@{/prodInfo(name=${line.name})}"> <span th:text="${line.name}"/></a></td>
         <td><span th:text="${line.price}"/></td>
         <td>
             <a th:href="@{'/prInfo?id='+ ${line.id}}"> Описание продукта </a>
